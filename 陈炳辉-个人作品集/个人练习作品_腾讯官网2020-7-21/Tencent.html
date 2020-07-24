@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tencent</title>
+    <!-- 创建时间：2020/7/20
+         完成时间：2020/7‎/‎21
+        
+         作品中的部分类名、ID、图片、尺寸、位置等参数，
+         参照官网的实际数据修改，网页的所有内容由本人独立完成，
+         制作过程中使用Jquery与原生JS实现部分动态效果。
+     -->
+    <style type="text/css">
+        @font-face {                                /*引入图标文件*/
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?tpcwmn');
+            src: url('fonts/icomoon.eot?tpcwmn#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?tpcwmn') format('truetype'),
+                url('fonts/icomoon.woff?tpcwmn') format('woff'),
+                url('fonts/icomoon.svg?tpcwmn#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: black;
+            text-decoration: none;
+            font-family: "微软雅黑";
+        }
+
+        .header {
+            height: 72px;
+            position: relative;
+        }
+
+        .menu_hook {
+            position: absolute;
+            left: -36px;
+            top: 0;
+            height: 445px;
+            z-index: 1;
+            display: none;
+        }
+
+        .head_box {
+            width: 1200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            height: 72px;
+            z-index: 2;
+        }
+
+        .logo_box {
+            height: 22px;
+            width: 168px;
+            padding-top: 25px;
+            float: left;
+        }
+
+        #logo {
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            background: url(Img/logo.png) no-repeat;
+            background-size: 100% 100%;
+            z-index: 2;
+            transition: 0.4s;
+        }
+
+        .nav_list {
+            float: left;
+            position: absolute;
+            right: 220px;
+            height: 72px;
+            z-index: 2;
+        }
+
+        .nav_item {
+            float: left;
+            height: 72px;
+            margin-left: 72px;
+            position: relative;
+            z-index: 2;
+            height: 72px;
+        }
+
+        .nav_list:hover .menu_hook {
+            display: block;
+        }
+
+        .nav_item:hover .sub_list {
+            animation: start 0.3s;
+            opacity: 0.7;
+        }
+
+        @keyframes start {
+            0% {
+                opacity: 0;
+                top: 40px;
+            }
+
+            100% {
+                top: 72px;
+            }
+        }
+
+        .nav_text {
+            display: block;
+            line-height: 72px;
+            position: relative;
+            z-index: 2;
+
+        }
+
+        .nav_language {
+            position: absolute;
+            line-height: 72px;
+            right: 0;
+            top: 0;
+        }
+
+        .white {
+            color: white;
+            font-weight: bold;
+            transition: 0.4s;
+        }
+
+        #bg_hover {
+            height: 0;
+            top: 0;
+            width: 100%;
+            position: absolute;
+            background-color: white;
+            z-index: 1;
+            transition: 0.25s;
+        }
+
+        .sub_list {
+            position: absolute;
+            left: 50%;
+            margin-left: -80px;
+            width: 160px;
+            text-align: center;
+            display: none;
+            z-index: 2;
+            opacity: 0;
+        }
+
+        .sub_list li a {
+            display: block;
+            line-height: 50px;
+            opacity: 0.7;
+        }
+
+        .sub_list li a:hover {
+            opacity: 1;
+        }
+
+        .sub_active {
+            display: block;
+        }
+
+        .video_con {
+            position: relative;
+            top: -72px;
+            height: 780px;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            width: 2560px;
+            height: 780px;
+            left: 50%;
+            margin-left: -1280px;
+
+        }
+
+        .textbox {
+            position: absolute;
+            display: block;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+        }
+
+        .textbox p {
+            float: left;
+            color: white;
+            font: 50px "等线";
+            letter-spacing: 15px;
+        }
+
+        .txtl {
+            margin-right: 60px;
+        }
+
+        .synopsis {
+            display: block;
+            position: relative;
+            top: 0;
+            text-align: center;
+            margin: 30px 0 90px;
+
+        }
+
+        .synopsis p {
+            font: 24px/55px "等线";
+            color: #777;
+            font-style: italic;
+        }
+
+        .sy_area {
+            height: 250px;
+            margin-bottom: 80px;
+        }
+
+        .sy_list {
+            width: 1240px;
+            height: 250px;
+            margin: auto;
+        }
+
+        .sy_list li {
+            overflow: hidden;
+            float: left;
+            height: 250px;
+            width: 400px;
+            position: relative;
+            margin-right: 20px;
+        }
+
+        .sy_list li:hover .sy_a p {
+            border-bottom: 3px solid;
+        }
+
+        .sy_a img {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+            transition: .5s;
+        }
+
+        .sy_list li:hover img {
+            transform: scale(1.05);
+        }
+
+        .sy_a p {
+            z-index: 3;
+            position: absolute;
+            top: 48%;
+            left: 35%;
+            color: white;
+            font: 30px "等线";
+            font-weight: bold;
+        }
+
+        .sy_a p {
+            transition: 0.1s;
+        }
+
+        .link_area {
+            height: 780px;
+            width: 100%;
+            background-color: #1b1f25;
+        }
+
+        .link_container {
+            width: 1440px;
+            height: 100%;
+            margin: auto;
+            position: relative;
+        }
+
+        .link_title {
+            height: 100%;
+            width: 480px;
+            float: left;
+        }
+
+        .link_list {
+            height: 100%;
+            width: 480;
+        }
+
+        .link_item {
+            position: relative;
+            height: 260px;
+            width: 480px;
+            opacity: 1;
+        }
+
+        .link_item a {
+            height: 100%;
+            display: block;
+            position: relative;
+        }
+
+        .link_textbox {
+            top: 50%;
+            left: 90px;
+            transform: translate(0, -50%);
+            position: absolute;
+            transition: 0.3s;
+            opacity: 0.5;
+        }
+
+        .arrow {
+            transition: 0.1s;
+            opacity: 0;
+        }
+
+        .link_textbox h3 {
+            font: 30px/40px "微软雅黑";
+        }
+
+        .link_textbox p {
+            font: 16px/48px "微软雅黑";
+        }
+
+        .link_textbox h3,
+        p,
+        .arrow {
+            color: white;
+
+        }
+
+        .link_active .link_textbox {
+            left: 110px;
+            opacity: 1;
+        }
+
+        .link_active .arrow {
+            opacity: 1;
+        }
+
+        .arrow {
+            height: 16px;
+            width: 54px;
+            background: url(Img/arrow.png) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_content {
+            position: relative;
+            float: right;
+            height: 780px;
+            width: 920px;
+
+        }
+
+        .link_con_list {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        .link_con_item {
+            float: left;
+            height: 390px;
+            width: 460px;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .link_con_item:hover .link_con_textbox {
+            top: 260px;
+        }
+
+        .link_con_item:hover .link_con_textbox p {
+            opacity: 1;
+        }
+
+        .link_con_item:hover .link_con_arrow {
+            opacity: 1;
+            left: 380px;
+        }
+
+        .link_con_item_1 {
+            background: url(Img/link1.1.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_con_item_2 {
+            background: url(Img/link1.2.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_con_item_3 {
+            background: url(Img/link1.3.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_con_item_4 {
+            background: url(Img/link1.4.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_con_item_2_1 {
+            background: url(Img/link2.1.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_con_item_2_2 {
+            background: url(Img/link2.2.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_con_item_2_3 {
+            background: url(Img/link2.3.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_con_item_3_1 {
+            background: url(Img/link3.1.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_con_item_3_2 {
+            background: url(Img/link3.2.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_con_item_3_3 {
+            background: url(Img/link3.3.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_con_item_3_4 {
+            background: url(Img/link3.4.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .link_con_item a {
+            height: 390PX;
+            width: 460PX;
+            display: block;
+            position: relative;
+        }
+
+        .link_con_textbox {
+            width: 370px;
+            position: absolute;
+            top: 320px;
+            left: 35px;
+            transition: 0.4s;
+        }
+
+        .link_con_textbox h4 {
+            font-size: 24px;
+        }
+
+        .link_con_textbox p {
+            margin-top: 20px;
+            font-size: 16px;
+            font-family: "等线";
+            opacity: 0;
+            transition: 0.4s;
+            line-height: 25px;
+
+        }
+
+        h4,
+        p,
+        .link_con_arrow {
+            color: white;
+        }
+
+        .link_con_arrow {
+            position: absolute;
+            height: 14px;
+            width: 31px;
+            background: url(Img/littlearrow.png);
+            background-size: 100% 100%;
+            top: 270px;
+            left: 350px;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .arrow_long {
+            left: 790px;
+        }
+
+        .link_con_item:hover .arrow_long {
+            opacity: 1;
+            left: 840px;
+        }
+
+        .link_con_list {
+            transition: 0.5s;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .list_active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .charity_area {
+            height: 620px;
+        }
+
+        .charity_container {
+            height: 100%;
+            width: 1280px;
+            margin: 84px auto;
+            position: relative;
+        }
+
+        .charity_box {
+            height: 620px;
+            width: 627px;
+            position: relative;
+            float: left;
+        }
+
+        .charity_list {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .charity_item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-size: cover !important;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+        }
+
+        .charity_active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .charity_item:nth-child(1) {
+            background: url(Img/slide1.png) no-repeat;
+            background-position: -150px;
+        }
+
+        .charity_item:nth-child(2) {
+            background: url(Img/slide2.jpg) no-repeat;
+        }
+
+        .charity_item:nth-child(3) {
+            background: url(Img/slide3.jpg) no-repeat;
+            background-position: -50px;
+        }
+
+        .charity_item:nth-child(4) {
+            background: url(Img/slide4.jpg) no-repeat;
+            background-position: -50px;
+        }
+
+        .triangle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0px;
+            border-left: 45px solid rgb(255, 255, 255, 0);
+            border-bottom: 620px solid white;
+        }
+
+        .charity_textbox {
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translate(-50%, 0);
+            width: 500px;
+        }
+
+        .charity_textbox h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .charity_textbox p {
+            font: 16px/30px "等线";
+        }
+
+        .charity_arrow {
+            position: absolute;
+            right: 90px;
+            top: 510px;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .charity_list:hover .charity_arrow {
+            opacity: 1;
+        }
+
+        .charity_arrow span {
+            cursor: pointer;
+            float: left;
+            margin-left: 30px;
+            width: 12px;
+            height: 16px;
+            background: url("Img/left_arrow.png") no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .charity_arrow span:nth-child(2) {
+            /*箭头垂直翻转*/
+            transform: rotateY(180deg);
+        }
+
+        .charity_txt {
+            float: left;
+            position: absolute;
+
+        }
+
+        .char_txt_position {
+            top: 42%;
+            left: 55%;
+        }
+
+        .charity_txt h2 {
+            font: 30px/44px "微软雅黑";
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2a2e2e;
+        }
+
+        .charity_txt p {
+            font: 20px/30px "等线";
+            color: #777;
+        }
+
+        .black_arrow {
+            margin-top: 40px;
+            display: block;
+            height: 16px;
+            width: 38px;
+            background: url(Img/blackarrow.png) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .develop_area {
+            position: relative;
+            margin-top: 85px;
+            height: 50vw;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slide_list {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .slide_list li {
+            height: 100%;
+            width: 100%;
+            float: left;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 1s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1;
+        }
+
+        .slide_list li:nth-child(1) {
+            background: url(Img/sbg1.jpg) no-repeat;
+            background-size: cover;
+        }
+
+        .slide_list li:nth-child(2) {
+            background: url(Img/sbg2.jpg) no-repeat;
+            background-size: cover;
+        }
+
+        .slide_list li:nth-child(3) {
+            background: url(Img/sbg3.jpg) no-repeat;
+            background-size: cover;
+        }
+
+        .slide_active {
+            opacity: 1 !important;
+            visibility: visible !important;
+            z-index: 2 !important;
+        }
+
+        .develop_txt_position {
+            top: 10vw;
+            left: 8vw;
+            z-index: 3;
+        }
+
+        .slide-tab {
+            position: absolute;
+            height: 12px;
+            z-index: 3;
+            top: 47vw;
+            left: 91vw;
+        }
+
+        .tab {
+            height: 12px;
+            width: 12px;
+            float: left;
+            background-color: white;
+            margin-left: 10px;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .tab_active {
+            width: 40px;
+            background-color: #0052d9;
+        }
+
+        .footer {
+            height: 480px;
+        }
+
+        .footer_container {
+            width: 1200px;
+            height: 100%;
+            margin: auto;
+            /* background-color: #bfa; */
+        }
+
+        .attention {
+            height: 90px;
+            border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+            margin-bottom: 45px;
+        }
+
+        .footer_color {
+            color: #555;
+            font-size: 20px;
+            line-height: 20px;
+        }
+
+        .attentxt {
+            padding: 35px 0;
+            float: left;
+        }
+
+        .icomoon {
+            font: 24px/24px 'icomoon';
+            margin: 33px 15px;
+            float: left;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .icon {
+            float: left;
+            margin-left: 20px;
+            height: 90PX;
+        }
+
+        .WeChatqr {
+            position: absolute;
+            height: 176px;
+            top: -190px;
+            left: 50%;
+            transform: translate(-50%, -0);
+            z-index: 3;
+            visibility: hidden;
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+        .icomoon:hover .WeChatqr {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .WeChat:hover {
+            color: #7bb32e;
+        }
+
+        .MicroBlog:hover {
+            color: #e6162d;
+        }
+
+        .Twitter:hover {
+            color: #1da1f2;
+        }
+
+        .LinkedIn:hover {
+            color: #0077b5;
+        }
+        .table_footer{
+            float:left ;
+            display: block;
+            text-align: center;
+            line-height: normal;
+        }
+        .table_footer th{
+            font-weight: normal;
+            font-size: 20px;
+            padding-bottom: 40px;
+        }
+        .table_footer td a{
+            display: block;
+            font-size: 16px;
+            margin-bottom:30px;
+            line-height:16px;
+        }
+        .table_container{
+            position: relative;
+            overflow: hidden;
+        }
+        .footer_logo{
+            position: absolute;
+            height: 32px;
+            left: 920px;
+            top: 90px;
+        }
+        .copyright_container{
+            width: 1200px;
+            height: 88px;
+        }
+        .copyright{
+            padding: 37px  0;
+            float: left;
+        }
+        .copyright a{
+            color: #555;
+        }
+        .copyright p{
+            color: #555;
+        }
+        .copyright li{
+            font-size: 14px;
+            float: left;
+            margin-right: 20px;
+        }
+        .footer_txt{
+            color: #555;
+            float: left;
+            padding: 37px  0;
+            float: right;
+            font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript" src="JS/jQuery v1.12.4.js"></script>
+    <script type="text/javascript">//Jquery：导航条
+        $(document).ready(function () {
+            $(".nav_list").mouseover(function () {                                  //鼠标悬停事件修改样式
+                $("#bg_hover").css({ "height": "445px", "opacity": "1" });
+                $("#logo").css("background-image", "url(Img/logo_hover.png)");      
+                $(".white").css("color", "black");
+            })
+            $(".nav_list").mouseleave(function () {                                 //鼠标离开事件修改样式
+                $("#bg_hover").css({ "height": "0", "opacity": "0" });
+                $("#logo").css("background-image", "url(Img/logo.png)");
+                $(".white").css("color", "white");
+            })
+        })
+    </script>
+    <script type="text/javascript">//原生JS：二级菜单
+        window.onload = function () {
+            var list = document.getElementById("nav_list");                 //Dom 获取类名
+            var items = document.getElementsByClassName("nav_item");
+            var sub = document.getElementsByClassName("sub_list");
+            for (var i = 0; i < items.length; i++) {
+                items[i].index = i;
+                items[i].addEventListener('mouseover', function () {        //为当前鼠标悬停的对象添加active类
+                    sub[this.index].className = "sub_list sub_active";
+                })
+            }
+            for (var i = 0; i < items.length; i++) {
+                items[i].index = i;
+                items[i].addEventListener('mouseleave', function () {       //为当前鼠标离开前一个对象后删除active类
+                    sub[this.index].className = "sub_list";
+                })
+            }
+        }
+
+    </script>
+    <script type="text/javascript">//Jquery+JS：腾讯科技模块
+        $(document).ready(function () {
+            var link_items = document.getElementsByClassName("link_item");
+            var con_list = document.getElementsByClassName("link_con_list");
+            var index = 0;          //当前显示腾讯科技模块的序号
+            
+            var ClearActive = function () {                                     //清除active类
+                for (var i = 0; i < link_items.length; i++) {
+                    link_items[i].className = 'link_item';
+                }
+                for (var i = 0; i < con_list.length; i++) {
+                    con_list[i].className = 'link_con_list link_con1';
+                }
+            }
+
+            var goindex = function () {                                         //图片切换事件
+                ClearActive();
+                link_items[index].className = 'link_item link_active';
+                con_list[index].className = 'link_con_list list_active';
+            }
+
+            for (var i = 0; i < link_items.length; i++) {
+                link_items[i].addEventListener('mouseover', function () {
+                    var ThisIndex = this.getAttribute('data-index');            //获取当前点击元素的data-index值
+                    index = ThisIndex;                                          //将值赋予index
+                    goindex();                                                  //运行goindex()事件
+                })
+            }
+        })
+    </script>
+    <script type="text/javascript">//Jquery：公益轮播图
+        $(document).ready(function () {
+            var charity_index = 0;                          //当前显示图片的序号
+            function char_ClearActive() {                   //清除active类
+                for (var i = 0; i < $(".charity_item").length; i++) {
+                    $(".charity_item:eq(" + i + ")").removeClass("charity_active");
+                }
+            }
+            $(".left_arrow").click(function () {            //轮播图切换前一张图片
+                if (charity_index > 0) {
+                    char_ClearActive();
+                    charity_index--;
+                    $(".charity_item:eq(" + charity_index + ")").addClass("charity_active");
+                } else {
+                    char_ClearActive();
+                    charity_index = $(".charity_item").length - 1;
+                    $(".charity_item:eq(" + charity_index + ")").addClass("charity_active");
+                }
+            })
+            function goNext() {             //轮播图切换下一张图片 封装goNext()事件可在定时器里调用该事件
+                if (charity_index < $(".charity_item").length - 1) {
+                    char_ClearActive();
+                    charity_index++;
+                    $(".charity_item:eq(" + charity_index + ")").addClass("charity_active");
+                } else {
+                    char_ClearActive();
+                    charity_index = 0;
+                    $(".charity_item:eq(" + charity_index + ")").addClass("charity_active");
+                }
+            }
+            $(".right_arrow").click(function () {           //点击右箭头执行goNext事件
+                goNext();
+            })
+            var timer = setInterval(goNext, 3000);          //轮播图定时器
+            $(".charity_list").mouseover(function () {      //鼠标悬停轮播图范围暂停时间
+                clearInterval(timer);
+            })
+            $(".charity_list").mouseleave(function () {     //鼠标离开轮播图范围将新的定时器赋值给timer
+                timer = setInterval(goNext, 3000);
+            })
+        })
+    </script>
+    <script type="text/javascript">//Jquery：人才与发展轮播图
+        $(document).ready(function () {
+            var $s_items = $(".slide_list li");         //获取标签
+            var $s_tab = $(".tab");
+            var s_index = 0;                            //当前显示图片的序号
+            var ClearTabactive = function () {          //清除active类事件
+                for (var i = 0; i < $s_tab.length; i++) {
+                    $s_tab.eq(i).removeClass("tab_active");
+                }
+                for (var i = 0; i < $s_items.length; i++) {
+                    $s_items.eq(i).removeClass("slide_active");
+                }
+            }
+            var gosindex = function () {                //执行切换事件
+                ClearTabactive();
+                $s_items.eq(s_index).addClass("slide_active");
+                $s_tab.eq(s_index).addClass("tab_active");
+            }
+            var goNext = function () {                  //切换下一张
+                if (s_index < $s_items.length - 1) {
+                    s_index++;
+                } else {
+                    s_index = 0;
+                }
+                gosindex();
+            }
+
+            $s_tab.click(function () {                  //按钮切换事件
+                s_index = $(this).index();              //获取当前所点击按钮的指数并将其赋值给s_index
+                gosindex();
+            });
+
+            var s_timer = setInterval(goNext, 4000);    //定时器时间
+            $(".develop_area").mouseover(function () {  //鼠标悬停元素清除定时器事件
+                clearInterval(s_timer);
+            })
+            $(".develop_area").mouseleave(function () { //鼠标离开元素重新设置定时器事件
+                s_timer = setInterval(goNext, 4000);
+            })
+        })
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <!-- 页头 -->
+        <div class="header"> 
+            <div class="container head_box">    
+                <div class="logo_box">          <!-- 公司logo -->
+                    <a href="#" id="logo"></a>
+                </div>
+
+                <ul class="nav_list">           <!-- 导航条 -->
+                    <li class="nav_item">
+                        <a href="#" class="nav_text white">简介</a>
+                        <ul class="sub_list">
+                            <li><a href="#">公司简介</a></li>
+                            <li><a href="#">愿景及使命</a></li>
+                            <li><a href="#">发展历程</a></li>
+                            <li><a href="#">业务架构</a></li>
+                            <li><a href="#">管理团队</a></li>
+                            <li><a href="#">企业文化</a></li>
+                            <li><a href="#">办公地点</a></li>
+                        </ul>
+                        <span class="menu_hook" style="width: 104px;"></span>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#" class="nav_text white">业务</a>
+                        <ul class="sub_list">
+                            <li><a href="#">面向用户</a></li>
+                            <li><a href="#">面向企业</a></li>
+                            <li><a href="#">创新科技</a></li>
+                        </ul>
+                        <span class="menu_hook" style="width: 104px;"></span>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#" class="nav_text white">员工</a>
+                        <ul class="sub_list">
+                            <li><a href="#">人才发展</a></li>
+                            <li><a href="#">腾讯学院</a></li>
+                            <li><a href="#">工作环境</a></li>
+                            <li><a href="#">员工活动</a></li>
+                        </ul>
+                        <span class="menu_hook" style="width: 104px;"></span>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#" class="nav_text white">企业责任</a>
+                        <ul class="sub_list">
+                            <li><a href="#">全球战疫</a></li>
+                            <li><a href="#">践行承诺</a></li>
+                            <li><a href="#">支持善举</a></li>
+                            <li><a href="#">鼓励创新</a></li>
+                            <li><a href="#">企业社会责任报告</a></li>
+                        </ul>
+                        <span class="menu_hook" style="width: 136px;"></span>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#" class="nav_text white">投资者</a>
+                        <ul class="sub_list">
+                            <li><a href="#">财务新闻</a></li>
+                            <li><a href="#">公告及财务报告</a></li>
+                            <li><a href="#">业绩电话会及路演</a></li>
+                            <li><a href="#">投资者工具包</a></li>
+                            <li><a href="#">证券及债券信息</a></li>
+                            <li><a href="#">企业管治</a></li>
+                        </ul>
+                        <span class="menu_hook" style="width: 120px;"></span>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#" class="nav_text white">媒体</a>
+                        <ul class="sub_list">
+                            <li><a href="#">企业动态</a></li>
+                            <li><a href="#">财务新闻</a></li>
+                            <li><a href="#">腾讯视角</a></li>
+                            <li><a href="#">媒体资料库</a></li>
+                        </ul>
+                        <span class="menu_hook" style="width: 104px;"></span>   <!-- 二级标题触碰区域 -->
+                    </li>
+                </ul>
+                <div class="nav_language">      <!-- 选择语言 -->
+                    <a href="#" class="white">简</a>
+                    <span class="white">/</span>
+                    <a href="#" class=" white">繁</a>
+                    <span class="white">/</span>
+                    <a href="#" class="white">EN</a>
+                </div>
+            </div>
+            <div id="bg_hover"></div>           <!-- 二级标题背景 -->
+        </div>
+        <!-- 页头 -->
+
+        <!-- 页身 -->
+        <div class="content">
+            <!-- 内容区域 -->
+            <div class="video_con">             <!-- 视频 -->
+                <video src="https://www.tencent.com/video/index-video.mp4" autoplay loop preload muted
+                    x-webkit-airplay="true"></video>
+                <div class="textbox">
+                    <p class="txtl">连接你我</p>
+                    <p class="txtr">共生未来</p>
+                </div>
+
+            </div>
+            <div class="synopsis">              <!-- 文字简介 --> 
+                <p>腾讯是一家以互联网为基础的平台公司，</p>
+                <p>通过技术丰富互联网用户的生活，助力企业数字化升级。</p>
+                <p>我们的使命是“用户为本 科技向善”。</p>
+            </div>
+            <div class="sy_area">               <!-- 公司简介 -->
+                <ul class="sy_list">
+                    <li>
+                        <a href="#" class="sy_a">
+                            <img src="Img/sy1.jpg" alt="">
+                            <p>公司简介</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="sy_a">
+                            <img src="Img/sy2.jpg" alt="">
+                            <p>企业文化</p>
+                        </a>
+                    </li>
+                    <li style="margin-right: 0;">
+                        <a href="#" class="sy_a">
+                            <img src="Img/sy3.jpg" alt="">
+                            <p>办公地点</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="link_area">             <!-- 腾讯科技 -->
+                <div class="link_container">
+                    <div class="link_title">    <!-- 腾讯科技标题列表 -->
+                        <ul class="link_list">  
+                            <li class="link_item link_active" data-index='0'>
+                                <a href="#">
+                                    <span class="link_textbox">
+                                        <h3>连接用户与生活</h3>
+                                        <p>让生活更便捷更多彩</p>
+                                        <div class="arrow"></div>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="link_item" data-index='1'>
+                                <a href="#">
+                                    <span class="link_textbox">
+                                        <h3>连接企业与科技</h3>
+                                        <p>数学化助手，助力产业升级</p>
+                                        <div class="arrow"></div>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="link_item" data-index='2'>
+                                <a href="#">
+                                    <span class="link_textbox">
+                                        <h3>连接现在与未来</h3>
+                                        <p>探索面向未来的创新科技</p>
+                                        <div class="arrow"></div>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="link_content">  <!-- 腾讯科技图片模块 -->
+                        <ul class="link_con_list list_active">
+                            <li class="link_con_item link_con_item_1">
+                                <a href="#">
+                                    <div class="link_con_textbox">
+                                        <h4>通信与社交</h4>
+                                        <p>连接人与人，提供功能丰富的即时通信和社交平台，让沟通更便捷。</p>
+                                    </div>
+                                    <div class="link_con_arrow"></div>
+                                </a>
+                            </li>
+                            <li class="link_con_item link_con_item_2">
+                                <a href="#">
+                                    <div class="link_con_textbox">
+                                        <h4>数字内容</h4>
+                                        <p>基于优质内容，以技术为驱动引擎，探索社交和内容融合的下一代形态。</p>
+                                    </div>
+                                    <div class="link_con_arrow"></div>
+                                </a>
+                            </li>
+                            <li class="link_con_item link_con_item_3">
+                                <a href="#">
+                                    <div class="link_con_textbox">
+                                        <h4>金融科技服务</h4>
+                                        <p>连接用户、商户和金融机构，提供安全、专业、便捷的金融产品与服务。</p>
+                                    </div>
+                                    <div class="link_con_arrow"></div>
+                                </a>
+                            </li>
+                            <li class="link_con_item link_con_item_4">
+                                <a href="#">
+                                    <div class="link_con_textbox">
+                                        <h4>工具</h4>
+                                        <p>提供多种工具性软件，帮助用户快速直接解决各项具体需求。</p>
+                                    </div>
+                                    <div class="link_con_arrow"></div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="link_con_list">
+                            <li class="link_con_item link_con_item_2_1">
+                                <a href="#">
+                                    <div class="link_con_textbox">
+                                        <h4>腾讯广告营销</h4>
+                                        <p>大数据营销平台，汇聚腾讯全量应用场景，提供一体化数字化营销方案。</p>
+                                    </div>
+                                    <div class="link_con_arrow"></div>
+                                </a>
+                            </li>
+                            <li class="link_con_item link_con_item_2_2">
+                                <a href="#">
+                                    <div class="link_con_textbox">
+                                        <h4>腾讯云</h4>
+                                        <p>提供领先的云产品与云服务，辅助企业走向数字化和全球化。</p>
+                                    </div>
+                                    <div class="link_con_arrow"></div>
+                                </a>
+                            </li>
+                            <li class="link_con_item link_con_item_2_3" style="width: 920px;">
+                                <a href="#" style="width: 100%;">
+                                    <div class="link_con_textbox" style="width: 570px;">
+                                        <h4>智慧产业</h4>
+                                        <p>通过云、AI、大数据分析、安全、支付、小程序、LBS等互联网前沿技术和产品，打造智慧产业方案，助力产业数字化升级。</p>
+                                    </div>
+                                    <div class="link_con_arrow arrow_long"></div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="link_con_list">
+                            <li class="link_con_item link_con_item_3_1">
+                                <a href="#">
+                                    <div class="link_con_textbox">
+                                        <h4>人工智能</h4>
+                                        <p>运用多种技术资产，提升人工智能实力，惠及人类和世界。</p>
+                                    </div>
+                                    <div class="link_con_arrow"></div>
+                                </a>
+                            </li>
+                            <li class="link_con_item link_con_item_3_2">
+                                <a href="#">
+                                    <div class="link_con_textbox">
+                                        <h4>物联网</h4>
+                                        <p>通过腾讯云物联网，致力提供IoT全栈产品和解决方案。</p>
+                                    </div>
+                                    <div class="link_con_arrow"></div>
+                                </a>
+                            </li>
+                            <li class="link_con_item link_con_item_3_3">
+                                <a href="#">
+                                    <div class="link_con_textbox">
+                                        <h4>多媒体</h4>
+                                        <p>腾讯多媒体实验室专注音视频通信技术的前瞻性研究。</p>
+                                    </div>
+                                    <div class="link_con_arrow"></div>
+                                </a>
+                            </li>
+                            <li class="link_con_item link_con_item_3_4">
+                                <a href="#">
+                                    <div class="link_con_textbox">
+                                        <h4>腾讯探索</h4>
+                                        <p>携手合作伙伴探索未来和相关技术，帮助解决全球在食物、能源和水源方面的挑战。</p>
+                                    </div>
+                                    <div class="link_con_arrow"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="charity_area">          <!-- 腾讯公益 -->
+                <div class="charity_container">
+                    <div class="charity_box  "> 
+                        <ul class="charity_list">                           <!-- 腾讯公益轮播图 -->
+                            <li class="charity_item charity_active">
+                                <div class="charity_textbox">
+                                    <h4>全球战疫 一起行动</h4>
+                                    <p>在新冠肺炎疫情之战中，腾讯秉持科技向善，以互联网科技的力量，通过我们的技术和产品为全球战疫提供支持。</p>
+                                </div>
+                            </li>
+                            <li class="charity_item">
+                                <div class="charity_textbox">
+                                    <h4>99 公益日</h4>
+                                    <p>每年一度于9月举行的全民公益活动，透过网上平台将大众在活动期间网上作出的捐款进行匹配。</p>
+                                </div>
+                            </li>
+                            <li class="charity_item">
+                                <div class="charity_textbox">
+                                    <h4>腾讯长城保护项目</h4>
+                                    <p>腾讯公益慈善基金会与中国文物保护基金会共同合作，吸引公众关注和参与长城保护的文化遗产类公益项目。</p>
+                                </div>
+                            </li>
+                            <li class="charity_item">
+                                <div class="charity_textbox">
+                                    <h4>腾讯为村</h4>
+                                    <p>根据乡村使用场景定制微信公众号，形成由村、乡镇、区县、州市组成的公众号集群服务村民，打造手机上的“为村服务中心”。</p>
+                                </div>
+                            </li>
+                            <div class="charity_arrow">                     <!-- 轮播图切换箭头按钮 -->
+                                <span class="left_arrow"></span>
+                                <span class="right_arrow"></span>
+                            </div>
+                        </ul>
+                        <div class="triangle"></div>                        <!-- 三角形遮挡 -->
+                    </div>
+                    <div class="charity_txt char_txt_position">
+                        <h2>连接<br>责任与信任</h2>
+                        <p>聚合微小善行，以科技让世界更美好</p>
+                        <a href="#" class="black_arrow"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="develop_area">          <!-- 人才与发展 -->
+                <ul class="slide_list">         <!-- 人才与发展轮播图 -->
+                    <li class="slide_active"></li>
+                    <li class=""></li>
+                    <li class=""></li>
+                </ul>
+                <ul class="slide-tab">          <!-- 轮播图切换按钮 -->
+                    <li class="tab tab_active"></li>
+                    <li class="tab "></li>
+                    <li class="tab"></li>
+                </ul>
+                <div class="charity_txt develop_txt_position">
+                    <h2>连接<br>人才与发展</h2>
+                    <p>激发活力，助力成长</p>
+                    <a href="#" class="black_arrow"></a>
+                </div>
+            </div>
+            <!-- 内容区域 -->
+        </div>
+        <!-- 页身 -->
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <div class="footer_container">
+                <div class="attention">
+                    <p class="footer_color attentxt">关注我们</p>
+                    <div class="icon">
+                        <a href="#" class="footer_color icomoon WeChat">
+                            <img class="WeChatqr" src="Img/WeChat_qr.png" alt="">
+                        </a>
+                        <a href="#" class="footer_color icomoon MicroBlog">
+                            <img class="WeChatqr" src="Img/WeChat_qr.png" alt="">
+                        </a>
+                        <a href="#" class="footer_color icomoon Twitter">
+                            <img class="WeChatqr" src="Img/WeChat_qr.png" alt="">
+                        </a>
+                        <a href="#" class="footer_color icomoon LinkedIn">
+                            <img class="WeChatqr" src="Img/WeChat_qr.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="table_container">
+                    <table class="table_footer">
+                        <tr>
+                            <th class="footer_color">加入我们</th>
+                            <th width="350px" class="footer_color">联系我们</th>
+                            <th class="footer_color">法律信息</th>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="footer_color">社会招聘</a></td>
+                            <td><a href="#" class="footer_color">客服服务</a></td>
+                            <td><a href="#" class="footer_color">服务协议</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="footer_color">校园招聘</a></td>
+                            <td><a href="#" class="footer_color">合作洽谈</a></td>
+                            <td><a href="#" class="footer_color">隐私政策</a></td>
+
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="footer_color">国际招聘</a></td>
+                            <td><a href="#" class="footer_color">腾讯采购</a></td>
+                            <td><a href="#" class="footer_color">知识产权</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="footer_color"></a></td>
+                            <td><a href="#" class="footer_color">媒体及投资者</a></td>
+                            <td><a href="#" class="footer_color"></a></td>
+                        </tr>
+                    </table>
+                    <img src="Img/logo_hover.png" class="footer_logo" alt="">
+                </div>
+                <div class="footer_copyright">
+                    <div class="copyright_container">
+                        <ul class="copyright">
+                            <li><a href="#">法律声明</a></li>
+                            <li><a href="#">阳光准则</a></li>
+                            <li><a href="#">网站地图</a></li>
+                            <li><a href="#">粤网文【2017】6138-1456号</a></li>
+                            <li><a href="#">粤B2-20090059-1</a></li>
+                        </ul>
+                        <p class="footer_txt">Copyright © 1998 - 2020 Tencent. All Rights Reserved. 腾讯公司 版权所有</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 页脚 -->
+    </div>
+</body>
+
+</html>

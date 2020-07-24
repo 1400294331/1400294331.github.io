@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/Master.css" />
+	</head>
+	<style type="text/css">
+		#inp1 {
+			width: 240px;
+			height: 40px;
+			line-height: 60px;
+			margin: 10px 0;
+			border: solid 1px rgb(224, 224, 224);
+			transition: .2s;
+			outline: none;
+			border-radius: 20px;
+			padding: 0 10px;
+			font-size: 12px;
+			color: rgb(120 120 120);
+		}
+		
+		.o {
+			width: 15px;
+			height: 15px;
+			border: solid black 2px;
+			border-radius: 50px;
+		}
+		
+		.line {
+			width: 15px;
+			height: 2px;
+			background-color: black;
+			position: relative;
+			left: 13px;
+			right: 13px;
+			transform: rotate(45deg);
+			border-radius: 50px;
+		}
+		
+		.box1 {
+			height: 27px;
+			width: 27px;
+			overflow: hidden;
+			position: absolute;
+			top: 16.5px;
+			right: 15px;
+			transform: scale(0.75);
+			transition: 0.2s;
+		}
+		
+		.header {
+			position: relative;
+		}
+		.head{
+			height: auto;
+		}
+		#inp1:hover {
+			border: solid rgb(255, 103, 0) 1px;
+		}
+		
+		#flash {
+			width: 1226px;
+			height: 460px;
+			margin: 20px auto;
+			position: relative;
+			background-color: rgb(200, 200, 200);
+			overflow: hidden;
+		}
+		
+		#flash img {
+			width: 100%;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			opacity: 0;
+			transition: 1s;
+			visibility: hidden;
+		}
+		
+		#ubtn {
+			position: absolute;
+			left: 40%;
+			bottom: 5%;
+		}
+		
+		#ubtn li {
+			width: 15px;
+			height: 15px;
+			background-color: black;
+			border-radius: 50%;
+			margin-left: 20px;
+			float: left;
+			cursor: pointer;
+			opacity: 0.5;
+		}
+		
+		#flash ul .li_1 {
+			background-color: #f40;
+			opacity: 1;
+		}
+		
+		.sbox {
+			width: 40px;
+			height: 80px;
+			position: absolute;
+			background-color: rgb(100, 100, 100);
+			opacity: .1;
+			transition: .2s;
+			cursor: pointer;
+		}
+		
+		#flash:hover .sbox {
+			opacity: .3;
+		}
+		
+		#flash .span-l {
+			left: 0;
+			top: 40%;
+		}
+		
+		#flash .span-r {
+			right: 0;
+			top: 40%;
+		}
+		
+		.bgc {
+			width: 100%;
+			background-color: #f5f5f5;
+		}
+		
+		.content {
+			width: 1226px;
+			margin: auto;
+			overflow: hidden;
+			padding: 50px;
+		}
+		
+		.buybox li {
+			float: left;
+			margin: 12.75px 0 0 12.75px;
+			height: 300px;
+			width: 235px;
+			background-color: white;
+			transition: .2s;
+		}
+		
+		.buybox {
+			height: 630px;
+		}
+		
+		.buybox li:nth-child(5n+1) {
+			margin-left: 0
+		}
+		
+		.join {
+			width: 1226px;
+			height: 120px;
+			margin: 30px auto;
+		}
+		
+		.video {
+			height: 285px;
+			width: 1226px;
+		}
+		
+		.video li {
+			width: 296px;
+			height: 285px;
+			float: left;
+			background-color: white;
+			margin-left: 14px;
+			border-radius: 5px;
+			overflow: hidden;
+			transition: .4s;
+		}
+		
+		.buybox span {
+			display: block;
+			width: 64px;
+			height: 20px;
+			background-color: rgb(131, 196, 78);
+			text-align: center;
+			line-height: 20px;
+			font-size: 10px;
+			color: white;
+			margin: auto;
+		}
+		
+		.buybox li img {
+			display: block;
+			width: 160px;
+			margin: auto;
+		}
+		
+		.ba {
+			display: block;
+			text-align: center;
+			color: black;
+			font-size: 16px;
+			margin-top: 18px;
+		}
+		
+		.bp1 {
+			margin-top: 4px;
+			font-size: 12px;
+			text-align: center;
+			color: #b0b0b0;
+		}
+		
+		.bp2 {
+			text-align: center;
+			margin-top: 12px;
+			color: #ff6700;
+			font-size: 16px;
+		}
+		
+		.buybox li:hover {
+			transform: translateY(-3px);
+			box-shadow: 0px 0px 20px 7px rgb(220, 220, 220);
+		}
+		
+		.buybox .cheap {
+			background-color: #e53935;
+		}
+		
+		.buybox span,
+		a,
+		p {
+			font-family: "微软雅黑";
+		}
+		
+		.video li a {
+			display: block;
+			height: 100%;
+		}
+		
+		.video p {
+			text-align: center;
+			line-height: 80px;
+		}
+		
+		.video li:hover {
+			transform: translateY(-3px);
+			box-shadow: 0px 0px 20px 7px rgb(220, 220, 220);
+		}
+		
+		.fixed {
+			list-style: none;
+			position: fixed;
+			right: 0;
+			bottom: 30%;
+		}
+		
+		.fly {
+			display: block;
+			width: 80px;
+			height: 80px;
+			color: black;
+			text-align: center;
+			line-height: 80px;
+			transition: .2s;
+			background-color: white;
+			color: rgb(100, 100, 100);
+			font-size: 14px;
+			font-weight: 600;
+			border: .1px solid rgb(200, 200, 200);
+			border-top: none;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		
+		.topline {
+			border-top: .1px solid rgb(200, 200, 200);
+		}
+		
+		.fly:hover {
+			background-color: orange;
+			color: white;
+		}
+	</style>
+
+	<body>
+		<div class="head">
+			<div class="header">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<ul class="nav">
+					<li>
+						<a href="MI.html">首页</a>
+					</li>
+					<li>
+						<a href="">小米手机</a>
+					</li>
+					<li>
+						<a href="">笔记本</a>
+					</li>
+					<li>
+						<a href="">家电</a>
+					</li>
+					<li>
+						<a href="">智能</a>
+					</li>
+					<li>
+						<a href="">服务</a>
+					</li>
+					<li>
+						<a href="">社区</a>
+					</li>
+				</ul>
+				<div class="nav-right">
+					<input type="search" name="" id="inp1" value="小米cc9Pro">
+					<a class="box1" href="">
+						<div class="o"></div>
+						<div class="line"></div>
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="main">
+			<div id="flash">
+				<a href=""><img src="img/商品图片/家电/洗衣机.webp" alt="" style="opacity: 1;visibility: visible;"></a>
+				<a href=""><img src="img/商品图片/手机/RedmiNote8pro.jpg" alt=""></a>
+				<a href=""><img src="img/商品图片/手机/2.jpg" alt=""></a>
+				<a href=""><img src="img/商品图片/手机/Redmi Note 8.jpg" alt=""></a>
+				<ul id="ubtn">
+					</a>
+					<li class="li_1"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<div id="d-r" class="span-r sbox">
+					<span>
+							<div class="rui-1"></div>
+							<div class="rui-2"></div>
+						</span>
+				</div>
+				<div id="d-l" class="span-l sbox">
+					<span>
+							<div class="lui-1"></div>
+							<div class="lui-2"></div>
+						</span>
+				</div>
+			</div>
+			<p style="font: bold 30px'微软雅黑';text-align: center;margin: 40px;color:rgb(50,50,50);">探索黑科技，小米为发烧而生</p>
+			<script>
+				var div = document.getElementById('flash');
+				var img = div.getElementsByTagName('img'); /*选中div下所有的图片*/
+				var ul = document.getElementById('ubtn');
+				var li = ul.getElementsByTagName('li');
+				var div_r = document.getElementById('d-r');
+				var span_r = div_r.getElementsByTagName('span');
+				var div_l = document.getElementById('d-l');
+				var sapn_l = div_l.getElementsByTagName('span');
+				var len = img.length;
+				var count = 0; /*设置count来显示当前图片的序号*/
+				function run() { /*将定时器里的函数提取到外部*/
+					count++;
+					count = count == 4 ? 0 : count; /*当图片加载到最后一张时，使其归零*/
+					for(var i = 0; i < len; i++) {
+						img[i].style.opacity = '0'; /*利用for循环使除当前count位其他图片隐藏*/
+						img[i].style.visibility = "hidden";
+					}
+					img[count].style.opacity = '1'; /*显示当前count的值所代表的图片*/
+					img[count].style.visibility = "visible"; /*显示当前count的值所代表的图片*/
+
+					for(var i = 0; i < li.length; i++) {
+						li[i].style.backgroundColor = "black"; /*原理同上*/
+						li[i].style.opacity = "0.5";
+
+					}
+					li[count].style.backgroundColor = "#f40";
+					li[count].style.opacity = "1";
+				}
+				var timer = setInterval(run, 3000); /*定义定时器，使图片每隔3s更换一次*/
+				div.onmouseover = function() {
+					clearInterval(timer);
+				}
+				div.onmouseleave = function() { /*定义鼠标移出事件，当鼠标移出div区域，轮播继续*/
+					timer = setInterval(run, 3000);
+				}
+				for(var i = 0; i < len; i++) {
+					li[i].index = i; /*定义index记录当前鼠标在li的位置*/
+					li[i].onclick = function() { /*定义鼠标点击事件*/
+						for(var i = 0; i < len; i++) { /*通过for循环将所有图片隐藏，圆点背景设为黑色*/
+							li[i].style.background = 'black';
+							li[i].style.opacity = "0.5";
+
+							img[i].style.opacity = '0';
+							img[i].style.visibility = 'hidden';
+
+						}
+						this.style.background = '#f40'; /*设置当前所指圆点的背景色*/
+						this.style.opacity = "1";
+
+						img[this.index].style.opacity = '1'; /*使圆点对应的图片显示*/
+						img[this.index].style.visibility = 'visible';
+					}
+				}
+				div_r.onclick = function() {
+					run(); /*直接调用现成的run函数*/
+				}
+
+				function reverse() {
+					count--;
+					count = count == -1 ? 3 : count;
+					for(var i = 0; i < len; i++) {
+						img[i].style.opacity = '0'; /*利用for循环使除当前count位其他图片隐藏*/
+						img[i].style.visibility = 'hidden';
+
+					}
+					img[count].style.opacity = '1'; /*显示当前count的值所代表的图片*/
+					img[count].style.visibility = 'visible';
+					for(var i = 0; i < li.length; i++) {
+						li[i].style.backgroundColor = "black";
+						li[i].style.opacity = "0.5";
+
+					}
+					li[count].style.backgroundColor = "#f40";
+					li[count].style.opacity = "1";
+
+				}
+				div_l.onclick = function() {
+					reverse(); /*重新设置函数*/
+				}
+			</script>
+			<div class="bgc">
+				<div class="content">
+					<p style="font: bold 25px '微软雅黑';margin: 20px 0;text-align: center;color: rgb(60 60 60);">智 能 家 电</p>
+					<ul class="buybox">
+						<li>
+							<a href=""><img style="width: 234px;" src="img/商品图片/家电/家电1.webp" alt="" /></a>
+						</li>
+						<li>
+							<span>新品</span>
+							<a href=""><img src="img/商品图片/家电/空调.webp" alt="" /></a>
+							<a href="" class="ba">米家互联网空调C1</a>
+							<p class="bp1">变频节能省电，自清洁</p>
+							<p class="bp2">1999元</p>
+						</li>
+						<li>
+							<span>新品</span>
+							<a href=""><img src="img/商品图片/家电/洗衣机2.webp" alt="" /></a>
+							<a href="" class="ba">Redmi全自动波轮洗衣机</a>
+							<p class="bp1">一键操作，父母都爱用</p>
+							<p class="bp2">799元</p>
+						</li>
+						<li>
+							<span>新品</span>
+							<a href=""><img src="img/商品图片/家电/电视机1.webp" alt="" /></a>
+							<a href="" class="ba">小米全面屏电视E55A</a>
+							<p class="bp1">全面屏设计，人工智能语音</p>
+							<p class="bp2">1699元</p>
+						</li>
+						<li>
+							<span>新品</span>
+							<a href=""><img src="img/商品图片/家电/净水器2.0.jpg" alt="" /></a>
+							<a href="" class="ba">小米净水器1A</a>
+							<p class="bp1">小身材节省空间，大流量直出纯净水</p>
+							<p class="bp2">999元</p>
+						</li>
+						<li>
+							<a href=""><img style="width: 234px;" src="img/商品图片/家电/家电2.webp" alt="" /></a>
+
+						</li>
+						<li>
+							<span class="cheap">促销</span>
+							<a href=""><img src="img/商品图片/家电/空调2.jpg" alt="" /></a>
+							<a href="" class="ba">米家空调</a>
+							<p class="bp1">出众静音，快速制冷热</p>
+							<p class="bp2">1299元</p>
+						</li>
+						<li>
+							<span class="cheap">促销</span>
+							<a href=""><img src="img/商品图片/家电/电视2.jpg" alt="" /></a>
+							<a href="" class="ba">小米电视4A</a>
+							<p class="bp1">4K HDR，人工智能语音系统 </p>
+							<p class="bp2">999元</p>
+						</li>
+						<li>
+							<span class="cheap">促销</span>
+							<a href=""><img src="img/商品图片/家电/冰箱.jpg" alt="" /></a>
+							<a href="" class="ba">米家风冷对开门冰箱</a>
+							<p class="bp1"> 全直流双变频，高效制冷低噪节能</p>
+							<p class="bp2">2199元</p>
+						</li>
+						<li>
+							<span class="cheap">促销</span>
+							<a href=""><img src="img/商品图片/家电/电饭煲.jpg" alt="" /></a>
+							<a href="" class="ba">米家电饭煲C1</a>
+							<p class="bp1">一键调节加热时间 ，搭配可得24种模式</p>
+							<p class="bp2">199元</p>
+						</li>
+					</ul>
+					<div class="join">
+						<a href=""><img src="img/商品图片/家电/家电广告.webp" /></a>
+					</div>
+					<p style="font: bold 25px '微软雅黑';margin: 20px 40px;color: rgb(60 60 60);">视 频</p>
+					<ul class="video">
+						<li style="margin-left: 0;">
+							<a href="">
+								<img src="img/商品图片/视频/video1.webp" />
+								<p>小米10 8K手机拍大片</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/商品图片/视频/video2.webp" />
+								<p>小米5G新品手机发布会</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/商品图片/视频/video3.webp" />
+								<p>小米10发布会</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="img/商品图片/视频/video4.webp" />
+								<p>小米MIX Alpha 开箱视频</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<ul class="fixed">
+					<li>
+						<a class="topline fly" href="#">顶部</a>
+					</li>
+					<li>
+						<a class="fly">个人中心</a>
+					</li>
+					<li>
+						<a class="fly">售后服务</a>
+
+					</li>
+					<li>
+						<a class="fly">联系我们</a>
+					</li>
+					<li>
+						<a class="fly">购物车</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="foot">
+			<div class="fbox">
+				<div class="footer-links">
+					<dl><dt>帮助中心</dt>
+						<dd>
+							<a href="">账户管理</a>
+						</dd>
+						<dd>
+							<a href="">购物指南</a>
+						</dd>
+						<dd>
+							<a href="">订单操作</a>
+						</dd>
+					</dl>
+					<dl><dt>服务支持</dt>
+						<dd>
+							<a href="">售后政策</a>
+						</dd>
+						<dd>
+							<a href="">自助服务</a>
+						</dd>
+						<dd>
+							<a href="">相关下载</a>
+						</dd>
+					</dl>
+					<dl><dt>线下门店</dt>
+						<dd>
+							<a href="">小米之家</a>
+						</dd>
+						<dd>
+							<a href="">服务网点</a>
+						</dd>
+						<dd>
+							<a href="">授权体验店</a>
+						</dd>
+					</dl>
+					<dl><dt>关于小米</dt>
+						<dd>
+							<a href="">了解小米</a>
+						</dd>
+						<dd>
+							<a href="">加入小米</a>
+						</dd>
+						<dd>
+							<a href="">投资者关系</a>
+						</dd>
+					</dl>
+					<dl><dt>关注我们</dt>
+						<dd>
+							<a href="">新浪微博</a>
+						</dd>
+						<dd>
+							<a href="">官方微信</a>
+						</dd>
+						<dd>
+							<a href="">联系我们</a>
+						</dd>
+					</dl>
+					<dl><dt>特色服务</dt>
+						<dd>
+							<a href="">F 码通道</a>
+						</dd>
+						<dd>
+							<a href="">礼物码</a>
+						</dd>
+						<dd>
+							<a href="">防伪查询</a>
+						</dd>
+					</dl>
+				</div>
+
+			</div>
+			<p class="copyright">© 2005 - 2020 MI 版权所有 粤ICP备08121385号-1 | 隐私 | 用户使用协议 | 联系方式：4261-173-486</p>
+		</div>
+	</body>
+
+</html>

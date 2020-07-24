@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="img/mi.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="css/Master.css" />
+		<title>小米官网 - 探索黑科技，小米为发烧而生</title>
+
+		<style type="text/css">
+			.nav a {
+				color: white;
+			}
+			
+			#inp1 {
+				width: 240px;
+				height: 40px;
+				line-height: 60px;
+				margin: 10px 0;
+				float: left;
+				border: solid 1px rgb(224, 224, 224);
+				transition: .2s;
+				outline: none;
+				border-radius: 20px;
+				padding: 0 10px;
+				font-size: 12px;
+				color: rgb(120 120 120);
+			}
+			
+			.o {
+				width: 15px;
+				height: 15px;
+				border: solid black 2px;
+				border-radius: 50px;
+			}
+			
+			.line {
+				width: 15px;
+				height: 2px;
+				background-color: black;
+				position: relative;
+				left: 13px;
+				right: 13px;
+				transform: rotate(45deg);
+				border-radius: 50px;
+			}
+			
+			.box1 {
+				height: 27px;
+				width: 27px;
+				overflow: hidden;
+				position: absolute;
+				top: 16.5px;
+				right: 15px;
+				transform: scale(0.75);
+				transition: 0.2s;
+			}			
+			#flash1{
+				position: absolute;
+				color: white;
+				opacity: 0;
+				left: 20vw;
+				top: 20vw;
+				font-size: 2.5vw;
+			}
+			.flash1 {
+				animation: flash1 .75s forwards;
+			}
+			@keyframes flash1 {
+				100% {top: 18vw;opacity: 1;}
+			}
+			#flash2 {
+				position: absolute;
+				color: white;
+				opacity: 0;
+				left: 20.2vw;
+				top: 22.5vw;
+				font-size: 1.2vw;
+			}
+			.flash2 {
+				animation: flash2 1.25s forwards;
+			}
+			@keyframes flash2 {
+				50% {top: 22.5vw;opacity: 0;}
+				100% {top: 21.5vw;opacity: 1;}
+			}			
+			#aflash {
+				position: absolute;
+				left: 22.5vw;
+				top: 27vw;
+				color: white;
+				opacity: 0;
+				font-size: 1.2vw;
+			}			
+			.aflash {
+				animation: aflash 3s forwards;
+				color: white;
+			}		
+			@keyframes aflash {
+				50% {opacity: 0;}
+				100% {opacity: 1;}
+			}	
+			.aflash:hover {
+				transform: scale(1.1);
+			}			
+			.head img {
+				width: 100%;
+				display: inline-block;
+			}
+			
+			.main {
+				width: 100%;
+				background-color: rgb(240 240 240);
+			}			
+			.class {
+				height: 57vw;
+			}
+			
+			.class li {
+				float: left;
+				width: 49.8%;
+				height: 28vw;
+				overflow: hidden;
+				margin-bottom: 0.38vw;
+				position: relative;
+			}
+			
+			.gright {
+				margin-left: 0.38vw;
+			}
+			
+			.class li img {
+				width: 100%;
+				transform: scale(1.05);
+				transition: 1s;
+			}
+			
+			.class li img:hover {
+				transform: scale(1);
+			}
+			
+			.class p {
+				color: white;
+			}
+			
+			.pflash1 {
+				font-size: 2vw;
+				font-weight: bold;
+				opacity: 0.8;
+				font-weight: bold;
+			}
+			
+			.pflash2 {
+				font-size: 0.9vw;
+				opacity: 0.8;
+				margin-top: 0.5vw;
+				font-weight: bold;
+			}
+			
+			.class .black {
+				color: black;
+			}
+			
+			.class div {
+				width: 400px;
+				height: 60px;
+				position: absolute;
+			}
+			
+			.phone {
+				top: 6vw;
+				left: 7vw;
+			}
+			
+			.conputer {
+				left: 28vw;
+				top: 6vw;
+			}
+			
+			.appliances {
+				top: 6vw;
+				left: 8vw;
+			}
+			
+			.AI {
+				top: 6vw;
+				left: 8vw;
+			}
+		</style>
+	</head>
+	<script type="text/javascript">
+		function load()
+		{
+		var add1 = document.getElementById("flash1");
+		var add2 = document.getElementById("flash2");
+		var add3 = document.getElementById("aflash");
+			 // 以上是选择元素的id
+		add1.classList.add("flash1")
+		add2.classList.add("flash2")
+		add3.classList.add("aflash")
+				//在元素上添加一个类
+		}
+	</script>
+	<body onload="load()"> <!--载入事件-->
+		<div class="head">
+			<div class="header">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<ul class="nav">
+					<li>
+						<a href="MI.html">首页</a>
+					</li>
+					<li>
+						<a href="手机.html">小米手机</a>
+					</li>
+					<li>
+						<a href="">笔记本</a>
+					</li>
+					<li>
+						<a href="">家电</a>
+					</li>
+					<li>
+						<a href="">智能</a>
+					</li>
+					<li>
+						<a href="">服务</a>
+					</li>
+					<li>
+						<a href="">社区</a>
+					</li>
+				</ul>
+				<div class="nav-right">
+					<input type="search" name="" id="inp1" value="小米cc9Pro">
+					<a class="box1" href="">
+						<div class="o"></div>
+						<div class="line"></div>
+					</a>
+				</div>
+			</div>
+			<p id="flash1" >小米MIX Alpha</p>
+			<p id="flash2" >5G环绕屏概念手机</p>
+			<a	id="aflash"href="">了解更多></a>
+			<img src="img/小米环绕2.jpg" />
+		</div>
+
+		<div class="main">
+			<ul class="class">
+				<li>
+					<a href="手机.html">
+						<img src="img/手机.png" />
+						<div class="phone">
+							<p class="pflash1">手机</p>
+							<p class="pflash2">小米，为发烧而生</p>
+						</div>
+					</a>
+				</li>
+				<li class="gright">
+					<a href="">
+						<img src="img/电脑.png" />
+						<div class="conputer">
+							<p class="pflash1 black">笔记本</p>
+							<p class="pflash2 black">从核芯到视野，再次突破强大</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="img/家电.png" />
+						<div class="appliances">
+							<p class="pflash1 black">家电</p>
+							<p class="pflash2 black">小米家电，省心省力好帮手</p>
+						</div>
+					</a>
+				</li>
+				<li class="gright">
+					<a href="">
+						<img src="img/智能.png" />
+						<div class="AI">
+							<p class="pflash1">智能</p>
+							<p class="pflash2">探索，让未来多一种可能</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="foot">
+			<div class="fbox">
+				<table class="footer-links">
+					<dl><dt>帮助中心</dt>
+						<dd>
+							<a href="">账户管理</a>
+						</dd>
+						<dd>
+							<a href="">购物指南</a>
+						</dd>
+						<dd>
+							<a href="">订单操作</a>
+						</dd>
+					</dl>
+					<dl><dt>服务支持</dt>
+						<dd>
+							<a href="">售后政策</a>
+						</dd>
+						<dd>
+							<a href="">自助服务</a>
+						</dd>
+						<dd>
+							<a href="">相关下载</a>
+						</dd>
+					</dl>
+					<dl><dt>线下门店</dt>
+						<dd>
+							<a href="">小米之家</a>
+						</dd>
+						<dd>
+							<a href="">服务网点</a>
+						</dd>
+						<dd>
+							<a href="">授权体验店</a>
+						</dd>
+					</dl>
+					<dl><dt>关于小米</dt>
+						<dd>
+							<a href="">了解小米</a>
+						</dd>
+						<dd>
+							<a href="">加入小米</a>
+						</dd>
+						<dd>
+							<a href="">投资者关系</a>
+						</dd>
+					</dl>
+					<dl><dt>关注我们</dt>
+						<dd>
+							<a href="">新浪微博</a>
+						</dd>
+						<dd>
+							<a href="">官方微信</a>
+						</dd>
+						<dd>
+							<a href="">联系我们</a>
+						</dd>
+					</dl>
+					<dl><dt>特色服务</dt>
+						<dd>
+							<a href="">F 码通道</a>
+						</dd>
+						<dd>
+							<a href="">礼物码</a>
+						</dd>
+						<dd>
+							<a href="">防伪查询</a>
+						</dd>
+					</dl>
+				</table>
+
+			</div>
+			<p class="copyright">© 2005 - 2020 MI 版权所有 粤ICP备08121385号-1 | 隐私 | 用户使用协议 | 联系方式：4261-173-486</p>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,36 @@
+.nav li:hover {  /*导航栏li元素底部边线*/
+	border-bottom: solid rgb(255, 103, 0) 2px;
+	transition: .2s;
+	cursor: pointer;
+}
+.aflash:hover {	/*字体缩放1.1倍*/
+	transform: scale(1.1);
+}
+.class li img:hover {/*分类图片缩放为1倍*/
+	transform: scale(1);
+}
+.box1:hover {	/*搜索图标缩放0.9倍*/
+	transform: scale(0.9);
+}
+dd a:hover {
+	/*超链接颜色改变*/
+	color: rgb(255, 103, 0);
+}
+#inp1:hover {	/*搜索框边线颜色变化*/
+	border: solid rgb(255, 103, 0) 1px;
+}
+#flash:hover .sbox { /*轮播图两侧按钮透明度变化*/
+	opacity: .3;
+}
+.buybox li:hover {	/*商品格上移与阴影效果*/
+	transform: translateY(-3px);
+	box-shadow: 0px 0px 20px 7px rgb(220, 220, 220);
+}
+.video li:hover {	/*视频格上移与阴影效果*/
+	transform: translateY(-3px);
+	box-shadow: 0px 0px 20px 7px rgb(220, 220, 220);
+}
+.fly:hover {/*悬浮栏内元素背景色与字体颜色变化*/
+	background-color: orange;
+	color: white;
+}

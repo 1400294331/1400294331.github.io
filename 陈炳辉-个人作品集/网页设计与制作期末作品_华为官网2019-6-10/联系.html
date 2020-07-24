@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>联系我们</title>
+
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				text-decoration: none;
+				font-family: "微软雅黑";
+			}
+			
+			.img {
+				display: block;
+				width: 250px;
+				float: left;
+				margin-right: 60px;
+				margin-left: 10px;
+			}
+			
+			div {
+				width: 650px;
+				height: 250px;
+				margin: 40px auto;
+				border-radius: 40px;
+				overflow: hidden;
+				transition: .5s;
+				box-shadow: 0 0 5px 2px rgb(20, 20, 20);
+			}
+			
+			p {
+				margin: 30px;
+				font-size: 30px;
+				font-family: "微软雅黑";
+			}
+			
+			div:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 0 15px 2px rgb(00, 00, 00);
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			.fixed {
+				list-style: none;
+				position: fixed;
+				right: 0;
+				top: 180px;
+			}
+			
+			.fly {
+				display: block;
+				width: 60px;
+				height: 60px;
+				color: black;
+				text-align: center;
+				line-height: 60px;
+				transition: .2s;
+				overflow: hidden;
+				background-color: rgb(240, 240, 240);
+				color: rgb(100, 100, 100);
+				font-size: 12px;
+				font-weight: 600;
+				border: .1px solid rgb(200, 200, 200);
+				border-top: none;
+				text-decoration: none;
+			}
+			
+			.topline {
+				border-top: .1px solid rgb(200, 200, 200);
+			}
+			
+			.fly:hover {
+				background-color: orange;
+				color: white;
+			}
+			
+			.huaweiapp {
+				position: absolute;
+				right: 60px;
+				top: -10px;
+				opacity: 0;
+				transition: .3s;
+			}
+			
+			.fly:hover+.huaweiapp {
+				opacity: 1;
+				right: 65px;
+			}
+			
+			.phone {
+				cursor: pointer;
+			}
+			
+			a {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div>
+			<img class="img" src="img/微信好友.png" />
+			<p>学号：16504230101</p>
+			<p>班级：现 教 1 班</p>
+			<p>姓名：陈&nbsp;&nbsp;炳&nbsp;&nbsp;辉</p>
+		</div>
+		<ul class="fixed">
+			<li>
+				<a class="topline fly" href="华为官网.html">返回首页</a>
+			</li>
+			<li style="position: relative;">
+				<a class="fly">手机APP</a>
+				<img class="huaweiapp" src="img/huaweiapp.png" />
+			</li>
+			<li>
+				<a class="fly" href="#">个人中心</a>
+			</li>
+			<li>
+				<a class="fly" href="联系.html">售后服务</a>
+
+			</li>
+			<li>
+				<a class="fly" href="联系.html">联系我们</a>
+			</li>
+			<li>
+				<a class="fly" href="#">购物车</a>
+			</li>
+		</ul>
+	</body>
+
+</html>

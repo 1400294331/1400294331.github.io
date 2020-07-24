@@ -1,0 +1,120 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+	color: black;
+	font-family: "等线";
+}
+body {
+	overflow-x: hidden;
+}
+/*head*/
+.head {		/*装载封面与导航栏的容器*/
+	width: 100%;
+	overflow: hidden;
+	height: 51.8vw;
+}
+.head img {			/*主页封面*/
+	width: 100%;
+	display: inline-block;
+}
+.header {		/*整个导航栏的容器*/
+	width: 1226px;
+	height: 60px;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+.logo {			/*商标*/
+	width: 54px;
+	height: 54px;
+	margin: 3px 0;
+	float: left;
+	overflow: hidden;
+}
+.nav {			/*导航栏超链接容器*/
+	position: relative;
+	left: 220px;
+	float: left;
+}
+.nav li {		/*超链接容器*/
+	display: inline-block;
+	text-align: center;
+	height: 58px;
+	line-height: 59px;
+	padding: 0 20px;
+	border-bottom: solid rgba(255, 103, 0, 0) 2px;
+}
+.nav li a {			/*超链接*/
+	display: block;
+	height: 100%;
+	font-family: "微软雅黑";
+}
+.nav-right {		/*搜索框*/
+	width: 240px;
+	height: 60px;
+	float: right;
+}
+input::-ms-clear {  /*搜索框样式清空,*/
+	display: none;	以下是不同浏览器的
+}
+input::-ms-reveal {		
+	display: none;
+}
+input[type=search]::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+input[type=search]::-ms-clear {
+	display: none;
+}
+
+
+
+
+.foot {	/*网页底部内容区*/
+	margin-top: 60px;
+}
+.fbox {/*服务中心容器*/
+	width: 1226px;
+	height: 100%;
+	margin: auto;	
+	/*让容器在底部居中显示*/
+}
+dl {/*表格的主题*/
+	width: 16.6%;
+	float: left;
+	text-align: center;	
+	/*文字居中*/
+}
+dt {			
+	margin: 20px 0;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: "微软雅黑";
+	color: rgb(80 80 80);
+}
+dd a {/*表格中的超链接*/
+	margin: auto;
+	line-height: 50px;
+	font-family: "微软雅黑";
+	color: rgb(120 120 120);
+	font-size: 15px;
+}
+.copyright {/*版权信息*/
+	height: 60px;
+	display: inline-block;	
+		/*内联块元素*/
+	text-align: center;
+	line-height: 60px;
+	width: 100%;
+	margin: 40px auto 0;
+	background-color: rgb(240 240 240);
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: rgb(120 120 120);
+}
+dd a:hover {/*超链接颜色改变*/
+	color: rgb(255, 103, 0);
+}

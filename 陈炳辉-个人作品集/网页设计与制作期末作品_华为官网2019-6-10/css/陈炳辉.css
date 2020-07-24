@@ -1,0 +1,538 @@
+			*{
+				margin: 0;
+				padding: 0;
+				text-decoration: none;
+				list-style: none;
+				color: black;
+				font-family: "微软雅黑";
+			}
+
+			/*Head*/
+			.head{
+				height: 160px;
+				transition: .5;
+				
+			}
+			.head a:hover{
+				color: royalblue;
+			}
+			.head .change1{
+				height: 40px;
+				background: linear-gradient(rgb(235,235,235), white);
+				min-width: 1000px
+			}
+			.home{
+				width: 920px;
+				height: 90px;
+				margin: auto;
+				position: relative;
+			}
+			.biglogo{
+				float: left;
+				width: 280px;
+				height: 90px;
+			}
+			.biglogo img{
+				width: 200px;
+				position: absolute;
+				left: 20px;
+				top: 20px;
+			}
+			.Gps{
+				width: 640px;
+				height: 90px;
+				float: right;	
+			}
+			.Gps li{
+				width: 100px;
+				height: 35px;
+				display: inline-block;
+				border-left: dashed 1px rgb(217,217,217);
+				margin: 30px 0;
+				padding: 0 10px;
+				text-align: center;
+			}
+			.Gps .aleft{
+				border-left: none;
+			}
+			.a{
+				font: bold 14px "微软雅黑";
+				color: rgb(120,120,120);
+			}
+			.p{
+				font-size: 12px;
+				color: rgb(180,180,180);
+			}
+			p{
+				cursor: default;
+			}
+			/*Main*/
+			.main .change2{
+				height: 335px;
+				background: linear-gradient(rgb(29,29,29),rgb(58,58,58));
+				min-width: 1000px
+			}
+			
+			.tv{
+				height: 340px;
+				width: 940px;
+				margin: auto;
+				border: solid 1px rgb(198,198,198);
+				border-radius: 10px;
+				position:absolute;
+				top: 180px;
+				left: 0;
+				right: 0;
+				box-shadow: 0px 0px 20px 0px rgb(40,40,40);
+				overflow: hidden;
+			}
+			.tv input{
+				display: none;
+			}
+
+			.tv ul{
+				padding: 0;
+				width: 2820px;
+				transition: 0.5s;
+			}
+			.tv li{
+				float: left;
+				height: 340px;
+				width: 940px;
+			}
+			label{
+				position: absolute;
+				top: 305px;
+				width: 20px;
+				height: 20px;
+				color: #FFF;
+				background: rgba(0,0,0,0.5);
+				cursor: pointer;
+				transition: .3s;
+				border-radius:100%;
+			}
+			label[for="one"]{
+				margin-left:20px ;
+			}
+			label[for="two"]{
+				margin-left:60px ;
+			}
+			label[for="three"]{
+				margin-left:100px ;
+			}
+			#one:checked~ul{
+				margin-left: 0px;
+			}
+			#two:checked~ul{
+				margin-left: -940px;
+			}
+			#three:checked~ul{
+				margin-left: -1880px;
+			}
+			#one:checked~label[for="one"]{
+				background-color: red;
+				opacity: .9;
+			}
+			#two:checked~label[for="two"]{
+				background-color: red;
+				opacity: .9;
+			}
+			#three:checked~label[for="three"]{
+				background-color: red;
+				opacity: .9;
+			}
+			.content{
+				height:1000px;
+				width: 940px;
+				margin: auto;
+			}
+			.title{
+				height: 90px;
+				border-bottom: 1px solid rgb(229,229,229) ;
+				margin-bottom: 45px;
+			}
+			.title p{
+				padding-top: 50px;
+				text-align: center;
+				font:  bold 20px "微软雅黑";
+				color: rgb(65,65,65);
+			}
+			.u1{
+				height: 400px;
+			}
+			.l1{
+				height: 400px;
+				width: 300px;
+				float: left;
+				margin-left:20px ;
+				position: relative;
+			}
+			.l1 .picture1{
+				width: 298px;
+				height: 188px;
+				background-color: rgb(242,242,242);
+				border: solid 1px rgb(226,226,226);
+				border-radius:5px ;
+				margin: 15px 0;
+				transition: .5s;
+			}
+			.l1 .p1{
+				
+				color: rgb(21,118,151);
+				font-size: 20px;
+			}
+			.l1 .p2{
+				color: rgb(174,174,174);
+				font-size: 13px;
+			}
+			.l1 .p3{
+				color: rgb(100,100,100);
+				font-size: 14px;
+				text-align: center;
+				line-height: 28px;
+			}
+			.picture1 div{
+				width: 286px;
+				height: 176px;
+				margin: 6px auto;
+				border-radius:2px ;
+				overflow: hidden;
+			}
+			.picture1:hover{
+				transform:  translateY(-5px) scale(1.05);
+				box-shadow: 0px 0px 15px 2px rgb(200,200,200);
+			}
+			.l1 .button1:hover{
+				transform:  translateX(60px) ;
+				background-color: orange;
+				border: solid 1px  indianred;
+			}
+
+			.l1 .button1{
+				display: block;
+				width: 160px;
+				height: 30px;
+				border: solid 1px rgb(226,226,226);
+				border-radius:5px ;
+				background-color: rgb(232,232,232);
+				position:  absolute;
+				bottom: 0px ;
+				left: 5px;
+				transition: .1s;
+				box-shadow: 1px 1px 6px 0px rgb(120,120,120);
+			}
+			.buy{
+				color: rgb(21,118,151);
+				margin: 0 20px;
+				font-size:15px ;
+				line-height: 30px;
+				cursor: inherit;
+			}
+			.l1 .button1 .buy{
+				margin-left: 15px;
+			}
+			.go{
+				float: right;
+				color: rgb(21,118,151);
+			}
+			.l1 p{
+				margin: 0 5px;
+			}
+			.u2{
+				height: 360px;
+				border-top: 1px solid rgb(229,229,229) ;				
+				margin-top: 45px;
+			
+				padding: 45px 0;
+			}
+			.l2{
+				height: 350px;
+				width: 300px;
+				float: left;
+				margin-left:20px ;
+				position: relative;
+				
+			}
+
+			.l2 p{
+				margin: 0 5px;
+			}
+			.l2 .p4{
+				font-size: 18px;
+				margin-bottom:5px ;
+			}
+			.u2 .p4{
+				margin-left:10px ;
+			}
+			.l2 .p5{
+				font-size: 11px;
+				color: rgb(95,95,95);
+				margin: 5px 0px 5px 10px;
+				overflow: hidden;
+			}
+
+			.l2 .p6{
+				
+				font:  18px  "微软雅黑";
+				margin-left:10px ;
+			}
+
+			hr{
+				margin: 10px 8px;
+				border:  dashed 1px rgb(210,210,210);
+				
+			}
+			.logo{
+				margin:30px 0 30px;
+				height: 50px;
+				position: relative;
+				z-index: 10000;
+			}
+			.logo .app{
+				
+				width: 50px;
+				height: 50px;
+				float: left;
+				border-radius: 10px;
+				overflow: hidden;
+				margin: 0 10.5px;
+				border: solid 1px rgb(200,200,200);
+				transition: .2s;
+			}
+			.logo .app img{
+				width: 50px;
+			}
+			.logo .app:hover{
+				transform: translateY(20px);
+			}
+			.hide{
+				position: absolute;
+				transition: .2s;
+			}
+			.wximg,.zfbimg,.qqimg{
+				width: 150px;
+			}
+			.hide img{
+				width: 120px;
+				transition: .2s;
+			}
+			.wx{
+				top:-130px;
+				left: -25px;
+				opacity: 0;
+			}
+			.zfb{
+				top:-180px;
+				left: 125px;
+				opacity: 0;
+			}
+			.qq{
+				top: -165px;
+				left: 50px;
+				opacity: 0;
+			}
+			.y3f{
+				top: -145px;
+				left: 193px;
+				opacity: 0;
+			}
+			.wx1:hover+.wx{
+				opacity: 1;
+				top: -150px;
+			}
+			.zfb1:hover+.zfb{
+				opacity: 1;
+				top: -200px;
+			}
+			.qq1:hover+.qq{
+				opacity: 1;
+				top: -185px;
+			}
+			.y3f1:hover+.y3f{
+				opacity: 1;
+				top: -175px;
+			}
+			#text{
+				display: block;
+				width: 265px;
+				height: 30px;
+				margin: 15px auto;
+				box-shadow: 0px 0px 5px 0px rgb(220,220,220);
+				transition: .2s;
+			}
+			
+			#text:hover{
+				box-shadow: 0px 0px 5px 0px rgb(120,120,120);
+			}
+			.l2 .button{
+				display: block;
+				width: 120px;
+				height: 30px;
+				border: solid 1px rgb(0,74,129);
+				border-radius:5px ;
+				background-color: rgb(63,110,154);
+				position:  absolute;
+				bottom: 0px ;
+				left: 8px;
+				box-shadow: 2px 2px 4px 0px rgb(120,120,120);
+				transition: .2s;
+			}
+			.l2 .button:hover{
+				transform:  translateX(10px) ;
+				background-color: orange;
+				border: solid 1px  indianred;
+			}
+			.buy2{
+				color: white;
+				font-size:12px ;
+				line-height: 30px;
+				cursor: pointer;
+			}
+			.button .buy2
+			{
+				margin-left:10px ;
+			}
+			.go2{
+				float: right;
+				color: white;
+			}
+			input{
+				border: solid 1px rgb(208,208,208);
+				outline: none;
+				padding: 0 10px;
+				color: rgb(120,120,120);
+			}
+			.textarea{
+				width: 265px;
+				height: 130.5px;
+				resize: none;
+				outline: none;
+				margin: 0px 8px;
+				border: solid 1px rgb(208,208,208);
+				padding: 10px 10px;
+				box-shadow: 0px 0px 5px 0px rgb(220,220,220);
+				transition: .2s;
+				font-size: 14px;
+				color: rgb(120,120,120);
+			}
+			.textarea:hover{
+				box-shadow: 0px 0px 5px 0px rgb(120,120,120);
+			}
+			.smallpt{
+				width: 55px;
+				height: 55px;
+				background-color: rgb(240,240,240);
+				border: solid 1px rgb(206,206,206);
+				border-radius:5px ;
+				float: left;
+				margin-right: 8px;
+				transition: 0.1s;
+			}
+			.smallpt1
+			{
+				width: 48px;
+			}
+			.smallpt div{
+				width: 47px;
+				height: 47px;
+				margin: 3.5px auto;
+				border-radius:2px ;
+				overflow: hidden;
+			}
+			.tandp{
+				height: 57px;
+				display: block;
+			}
+			.tandp p{
+				cursor: inherit;
+			}
+			.tandp:hover .p5{
+				color: orange;
+			}
+			.tandp:hover .smallpt{
+				transform: scale(1.1);
+			}
+			
+			.tandp:active .p5{
+				color: orangered;
+			}
+			.margin{
+				margin: 13.5px 0;
+			}
+			
+			/*Foot*/
+			.foot{
+				height: 170px;
+				border-top: solid 10px rgb(76,76,76);
+				background-color: rgb(51,51,51);
+				min-width: 1000px
+			}
+			.foot{
+				
+				font-size:14px ;
+				text-align: center;
+			}
+			.foot a,.foot p{
+				color: rgb(200,200,200);
+			}
+			.foot a{
+				display: inline-block;
+				margin:0px  8px 8px;
+			}
+			.foot a:hover{
+				color: white;
+			}
+			.name{
+				width: 100px;
+				margin: 10px 40px 5px;
+			}
+			.fixed {
+				list-style: none;
+				position: fixed;
+				right: 0;
+				top: 180px;
+			}
+			
+			.fly {
+				display: block;
+				width: 60px;
+				height: 60px;
+				color: black;
+				text-align: center;
+				line-height: 60px;
+				transition: .2s;
+				overflow: hidden;
+				background-color: rgb(240, 240, 240);
+				color: rgb(100, 100, 100);
+				font-size: 12px;
+				font-weight: 600;
+				border: .1px solid rgb(200, 200, 200);
+				border-top: none;
+				text-decoration: none;
+			}
+			
+			.topline {
+				border-top: .1px solid rgb(200, 200, 200);
+			}
+			
+			.fly:hover {
+				background-color: orange;
+				color: white;
+			}
+			.huaweiapp{
+				position: absolute;
+				right: 60px;
+				top:-10px;
+				opacity: 0;
+				transition: .3s;
+			}
+			.fly:hover+.huaweiapp{
+				opacity: 1;
+				right: 65px;
+			}
+			.phone{
+				cursor: pointer;
+			}
+			a{
+				cursor: pointer;
+			}

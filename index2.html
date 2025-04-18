@@ -1,147 +1,47 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人博客</title>
-    <style>
+    <title>Document</title>
+    <style type="text/css">
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: "微软雅黑 宋体";
         }
 
-        body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-
-        header {
-            background-color: #2c3e50;
-            color: white;
+        h3 {
+            margin-top: 40px;
             text-align: center;
-            padding: 2rem 0;
+            font-size: 40px;
         }
 
-        nav {
-            background-color: #34495e;
-            padding: 1rem;
+        a {
+            font-size: 30px;
+            margin-right: 20px;
         }
+        div{
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            gap: 2rem;
-        }
-
-        .post {
-            background: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .post h2 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .post-date {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-
-        .sidebar {
-            background: white;
-            padding: 2rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        footer {
-            background-color: #2c3e50;
-            color: white;
+            margin: 40px auto;
             text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
+        p{
+            margin-top: 40px;
+            font-size: 24px;
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <h1>我的个人博客</h1>
-        <p>分享技术与生活感悟</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">关于</a></li>
-            <li><a href="#">联系</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <main>
-            <article class="post">
-                <h2>我的第一篇文章</h2>
-                <p class="post-date">2024年1月1日</p>
-                <p>这里是文章摘要内容，简要介绍文章的主要观点和内容...</p>
-                <a href="#">阅读更多 →</a>
-            </article>
-
-            <article class="post">
-                <h2>技术学习心得</h2>
-                <p class="post-date">2023年12月15日</p>
-                <p>分享最近学习新技术的心得体会...</p>
-                <a href="#">阅读更多 →</a>
-            </article>
-        </main>
-
-        <aside class="sidebar">
-            <div class="about">
-                <h3>关于我</h3>
-                <img src="avatar.jpg" alt="头像" style="width: 100px; border-radius: 50%; margin: 1rem 0;">
-                <p>一名热爱技术的开发者，喜欢分享知识和经验</p>
-            </div>
-
-            <div class="popular-posts">
-                <h3>热门文章</h3>
-                <ul>
-                    <li><a href="#">前端开发指南</a></li>
-                    <li><a href="#">JavaScript技巧</a></li>
-                    <li><a href="#">响应式设计实践</a></li>
-                </ul>
-            </div>
-        </aside>
+    <h3>陈炳辉的个人作品</h3>
+    <div>
+        <a href="/陈炳辉-个人作品集/个人练习作品_腾讯官网2020-7-21/Tencent.html">腾讯主页</a>
+        <a href="/陈炳辉-个人作品集/本科毕业论文作品_小米官网2020-4-20/MI.html">小米网店</a>
+        <a href="/陈炳辉-个人作品集/网页设计与制作期末作品_华为官网2019-6-10/华为官网.html">华为官网</a>
+        <p>作品中的部分类名、ID、图片、尺寸、位置等参数，参照官网的实际数据修改，<br> 网页的所有内容由本人独立完成，制作过程中使用Jquery与原生JS实现部分动态效果。</p>
     </div>
-
-    <footer>
-        <p>© 2024 我的个人博客. All Rights Reserved.</p>
-    </footer>
 </body>
+
 </html>

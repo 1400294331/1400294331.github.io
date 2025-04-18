@@ -1,47 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style type="text/css">
+    <title>陈炳辉 | 室内设计师</title>
+    <style>
+        :root {
+            --primary: #3A4D63;   /* 深海蓝 */
+            --accent: #D4A373;    /* 陶土棕 */
+            --text: #404040;      /* 深灰 */
+        }
+
         * {
             margin: 0;
             padding: 0;
-            font-family: "微软雅黑 宋体";
+            box-sizing: border-box;
+            font-family: '思源黑体', sans-serif;
         }
 
-        h3 {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 40px;
+        body {
+            line-height: 1.7;
+            color: var(--text);
         }
 
-        a {
-            font-size: 30px;
-            margin-right: 20px;
+        /* 紧凑版式系统 */
+        .design-section {
+            padding: 2.5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        div{
 
-            margin: 40px auto;
-            text-align: center;
+        .section-header {
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin: 2rem 0;
         }
-        p{
-            margin-top: 40px;
-            font-size: 24px;
+
+        /* 专业头部 */
+        .professional-header {
+            background: var(--primary);
+            padding: 2rem 1rem;
+        }
+
+        .designer-profile {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .designer-photo {
+            width: 120px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        /* 项目展示系统 */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .design-project {
+            border: 1px solid #e0e0e0;
+        }
+
+        .project-visual {
+            height: 220px;
+            background: #f8f8f8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-meta {
+            padding: 1.2rem;
+            background: white;
+        }
+
+        .meta-label {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 全景系统 */
+        .vr-system {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            border-top: 2px solid var(--primary);
+            padding-top: 2rem;
+        }
+
+        .vr-portal {
+            border: 1px solid #ddd;
+            padding: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .vr-portal:hover {
+            background: #fafafa;
+        }
+
+        .vr-link {
+            color: var(--primary);
+            text-decoration: none;
+            display: block;
+        }
+
+        .vr-link::after {
+            content: "→";
+            margin-left: 0.5rem;
+            color: var(--accent);
+        }
+
+        /* 联系系统 */
+        .design-contact {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
         }
     </style>
 </head>
-
 <body>
-    <h3>陈炳辉的个人作品</h3>
-    <div>
-        <a href="/陈炳辉-个人作品集/个人练习作品_腾讯官网2020-7-21/Tencent.html">腾讯主页</a>
-        <a href="/陈炳辉-个人作品集/本科毕业论文作品_小米官网2020-4-20/MI.html">小米网店</a>
-        <a href="/陈炳辉-个人作品集/网页设计与制作期末作品_华为官网2019-6-10/华为官网.html">华为官网</a>
-        <p>作品中的部分类名、ID、图片、尺寸、位置等参数，参照官网的实际数据修改，<br> 网页的所有内容由本人独立完成，制作过程中使用Jquery与原生JS实现部分动态效果。</p>
-    </div>
-</body>
+    <!-- 专业头部 -->
+    <header class="professional-header">
+        <div class="designer-profile">
+            <img src="室内作品集/证件照.jpg" alt="设计师肖像" class="designer-photo">
+            <div>
+                <h1 style="color: white; margin: 0;">陈炳辉</h1>
+                <p style="color: #ffffffdd; margin: 0.5rem 0;">室内设计师 | Ban.Chan</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <a href="#projects" style="color: white; text-decoration: none; border-bottom: 2px solid var(--accent);">作品集</a>
+                    <a href="#vr" style="color: white; text-decoration: none; border-bottom: 2px solid var(--accent);">空间漫游</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
+
+    <!-- 项目展示 -->
+    <section class="design-section" id="projects">
+        <h2 class="section-header">精选案例</h2>
+        <div class="project-grid">
+            <!-- 住宅项目 -->
+            <article class="design-project">
+                <div class="project-visual">
+                    <img src="室内作品集/电视背景墙.jpg" alt="住宅项目" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="project-meta">
+                    <div class="meta-label">广东·142㎡ | 现代简约</div>
+                    <h3>光影流动的极简容器</h3>
+                    <p>· 拆除6处非承重墙重构空间序列<br>
+                    · 采用模块化定制家具系统<br>
+                    · 智能照明场景解决方案</p>
+                </div>
+            </article>
+
+            <!-- 商业项目 -->
+            <article class="design-project">
+                <div class="project-visual">
+                    <img src="室内作品集/玄关.png" alt="住宅项目" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="project-meta">
+                    <div class="meta-label">广东·204㎡ | 奶油胡桃木</div>
+                    <h3>奶油中古风·胡桃木的时光沉淀</h3>
+                    <p>· 复古与现代交融的温馨<br>
+                    · 可变形陈列装置设计<br>
+                    · 声学环境整体优化</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 全景系统 -->
+    <section class="design-section" id="vr">
+        <div class="vr-system">
+            <div class="vr-portal">
+                <a href="https://vr.justeasy.cn/view/1070g62q5p4y41b2-1706577789.html" class="vr-link" target="_blank">
+                    <h3>项目全景漫游</h3>
+                    <p>点击进入720°空间体验 →</p>
+                </a>
+            </div>
+            <div class="vr-portal">
+                <a href="https://vr.justeasy.cn/view/r1r1a68y93816214-1690417179.html" class="vr-link" target="_blank">
+                    <h3>项目全景漫游</h3>
+                    <p>点击进入720°空间体验 →</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系系统 -->
+    <footer class="design-contact">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <p>简历PDF下载：<a href="室内作品集/陈炳辉-室内设计-简历.pdf" style="color: var(--accent);">陈炳辉-室内设计-简历（608KB）</a></p>
+            <p>联系邮箱：benchan.ds@foxmail.com | 手机：17676612620</p>
+        </div>
+    </footer>
+</body>
 </html>
